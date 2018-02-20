@@ -3,48 +3,56 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Entity
  * @ORM\Table(name="provider_countries"),
  * @ORM\HasLifecycleCallbacks
  */
 class Country
 {
     /**
+     *@ORM\Column(type="integer")
+     *@ORM\Id
+     *@ORM\GeneratedValue(strategy="AUTO")
+     */
+    public $id;
+    
+    /**
      * @ORM\OneToMany(targetEntity="City", mappedBy="country")
      */
-    protected $cities;
+    public $cities;
 
     /**
      * @ORM\OneToMany(targetEntity="State", mappedBy="country")
      */
-    protected $states;
+    public $states;
 
     /**
      * @ORM\OneToMany(targetEntity="Address", mappedBy="country")
      */
-    protected $addresses;
+    public $addresses;
 
     /**
      * @ORM\Column()
      */
-    protected $commonName;
+    public $commonName;
 
     /**
      * @ORM\Column()
      */
-    protected $officialName;
+    public $officialName;
 
     /**
      * @ORM\Column()
      */
-    protected $abbreviation;
+    public $abbreviation;
 
     /**
      * @ORM\Column()
      */
-    protected $cca3;
+    public $cca3;
     /**
      * @ORM\Column()
      */
-    protected $ccn3;
+    public $ccn3;
 
 }

@@ -3,33 +3,41 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Entity
  * @ORM\Table(name="provider_taxonomies"),
  * @ORM\HasLifecycleCallbacks
  */
-class City
+class Taxonomy
 {
     /**
-     * @ORM\Column(name="code", type="string")
+     *@ORM\Column(type="integer")
+     *@ORM\Id
+     *@ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $code;
+    public $id;
 
     /**
-     * @ORM\Column(name="grouping", type="string")
+     * @ORM\Column()
      */
-    protected $grouping;
+    public $code;
 
     /**
-     * @ORM\Column(name="classification", type="string")
+     * @ORM\Column()
      */
-    protected $classification;
+    public $grouping;
 
     /**
-     * @ORM\Column(name="specialization", type="string")
+     * @ORM\Column()
      */
-    protected $specialization;
+    public $classification;
 
     /**
-     * @ORM\Column(name="definition", type="string")
+     * @ORM\Column()
      */
-    protected $definition;
+    public $specialization;
+
+    /**
+     * @ORM\Column()
+     */
+    public $definition;
 }

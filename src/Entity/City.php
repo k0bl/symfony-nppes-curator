@@ -3,91 +3,99 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Entity
  * @ORM\Table(name="provider_cities"),
  * @ORM\HasLifecycleCallbacks
  */
 class City
 {
     /**
+     *@ORM\Column(type="integer")
+     *@ORM\Id
+     *@ORM\GeneratedValue(strategy="AUTO")
+     */
+    public $id;
+
+    /**
      * @ORM\ManyToOne(targetEntity="State", inversedBy="cities")
      * @ORM\JoinColumn(name="state_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    protected $state;
+    public $state;
 
     /**
      * @ORM\ManyToOne(targetEntity="Country", inversedBy="cities")
      * @ORM\JoinColumn(name="country_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    protected $country;
+    public $country;
 
     /**
      * @ORM\OneToMany(targetEntity="Address", mappedBy="city")
      */
-    protected $addresses;
+    public $addresses;
 
     /**
      * @ORM\Column()
      */
-    protected $name;
+    public $name;
 
     /**
      * @ORM\Column()
      */
-    protected $nameCanonical;
+    public $nameCanonical;
 
     /**
      * @ORM\Column(nullable=true)
      */
-    protected $county;
+    public $county;
 
     /**
      * @ORM\Column(nullable=true, length=2701)
      */
-    protected $zipCodes;
+    public $zipCodes;
 
     /**
      * @ORM\Column(nullable=true)
      */
-    protected $areaCode;
+    public $areaCode;
 
     /**
      * @ORM\Column(nullable=true, type="decimal", precision=8, scale=5)
      */
-    protected $latitude;
+    public $latitude;
 
     /**
      * @ORM\Column(nullable=true, type="decimal", precision=8, scale=5)
      */
-    protected $longitude;
+    public $longitude;
 
     /**
      * @ORM\Column(nullable=true, type="integer")
      */
-    protected $population;
+    public $population;
 
     /**
      * @ORM\Column(nullable=true, type="integer")
      */
-    protected $households;
+    public $households;
 
     /**
      * @ORM\Column(nullable=true, type="integer")
      */
-    protected $medianIncome;
+    public $medianIncome;
 
     /**
      * @ORM\Column(nullable=true, type="bigint")
      */
-    protected $landArea;
+    public $landArea;
 
     /**
      * @ORM\Column(nullable=true, type="bigint")
      */
-    protected $waterArea;
+    public $waterArea;
 
     /**
      * @ORM\Column(nullable=true)
      */
-    protected $timeZone;
+    public $timeZone;
 
 }
