@@ -56,7 +56,7 @@ class TaxonomyImportCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        $this->taxonomymanager = $this->get('doctrine.orm.default_entity_manager');
+        $this->taxonomymanager = $this->get('doctrine.orm.entity_manager');
 
         $this->io->title('Create Taxonomy');
         $file = $input->getArgument('file');
