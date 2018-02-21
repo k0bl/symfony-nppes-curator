@@ -4,8 +4,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="provider_numbers"),
- * @ORM\HasLifecycleCallbacks
+ * @ORM\Table(name="provider_numbers")
  */
 class Number
 {
@@ -27,6 +26,11 @@ class Number
      */
     public $type;
     
+    /**
+     * @ORM\Column()
+     */
+    public $location;
+
     /**
      * @ORM\Column()
      */
