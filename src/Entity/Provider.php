@@ -1,18 +1,17 @@
 <?php
 namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Commmon\Collections\ArrayCollection;
 /**
- * @ORM\Entity
- *@ORM\Entity
- *@ORM\Table(name="provider")
+ * @ORM\Entity(repositoryClass="App\Repository\ProviderRepository")
+ * @ORM\Table(name="provider")
  */
 class Provider
 {
 	/**
-	 *@ORM\Column(type="integer")
-	 *@ORM\Id
-	 *@ORM\GeneratedValue(strategy="AUTO")
+	 * @ORM\Column(type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
 	 */
 	public $id;
 
@@ -96,4 +95,9 @@ class Provider
      */
     public $specialties;
 
+    public function __construct() {
+        $this->addresses = new ArrayCollection();
+        $this->numbers = new ArrayCollection();
+        $this->specialties = new ArrayCollection();
+    }
 }

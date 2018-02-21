@@ -3,9 +3,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TaxonomyRepository")
  * @ORM\Table(name="provider_taxonomies"),
- * @ORM\HasLifecycleCallbacks
  */
 class Taxonomy
 {

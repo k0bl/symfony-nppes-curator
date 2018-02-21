@@ -4,8 +4,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="provider_countries"),
- * @ORM\HasLifecycleCallbacks
+ * @ORM\Table(name="provider_countries")
  */
 class Country
 {
