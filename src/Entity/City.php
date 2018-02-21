@@ -3,8 +3,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="provider_cities"),
+ * @ORM\Entity(repositoryClass="App\Repository\CityRepository")
+ * @ORM\Table(name="provider_cities")
  * @ORM\HasLifecycleCallbacks
  */
 class City
@@ -97,5 +97,16 @@ class City
      * @ORM\Column(nullable=true)
      */
     public $timeZone;
-
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function calcNameCanonical()
+    {
+        $this->nameCanonical = preg_replace(
+            '/[^a-z0-9]/',
+            '',
+            strtolower($this->name)
+        );
+    }
 }

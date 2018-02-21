@@ -3,14 +3,17 @@
 namespace App\Command;
 
 use App\Entity\Taxonomy;
-use App\Model\TaxonomyInterface as Tax;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Doctrine\Commmon\Collections\ArrayCollection;
+
 use Symfony\Component\Console\Style\SymfonyStyle;
+
+use App\Model\TaxonomyInterface as Tax;
 
 use App\Util\SystemLoggingTrait;
 
@@ -55,6 +58,10 @@ class TaxonomyImportCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $col = new ArrayCollection();
+        $output->writeln($col->count());
+        
+
 
         $this->taxonomymanager = $this->get('doctrine.orm.entity_manager');
 
