@@ -8,12 +8,12 @@ use Doctrine\Commmon\Collections\ArrayCollection;
  */
 class Provider
 {
-	/**
-	 * @ORM\Column(type="integer")
-	 * @ORM\Id
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 */
-	public $id;
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    public $id;
 
     /**
      * @ORM\Column(name="npi", type="string", nullable=true)
