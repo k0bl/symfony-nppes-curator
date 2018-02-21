@@ -58,11 +58,6 @@ class TaxonomyImportCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $col = new ArrayCollection();
-        $output->writeln($col->count());
-        
-
-
         $this->taxonomymanager = $this->get('doctrine.orm.entity_manager');
 
         $this->io->title('Create Taxonomy');

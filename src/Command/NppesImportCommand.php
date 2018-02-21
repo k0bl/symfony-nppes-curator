@@ -97,9 +97,6 @@ class NppesImportCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $col = new ArrayCollection();
-        $output->writeln($col->count());
-
         $this->io->title('Import NPPES Datafile');
         $file = $input->getArgument('file');
         if (!file_exists($file) || !is_readable($file)) {
